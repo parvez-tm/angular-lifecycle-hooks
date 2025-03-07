@@ -1,0 +1,14 @@
+<h1>parent works!</h1>
+<strong>
+    When change detection happens
+</strong>
+<ul>
+    <li>When any event like click,mouseover etc. happens</li>
+    <li>When any asyncronous functions like setInterval etc. </li>
+    <li>When api request is invoked</li>
+</ul>
+<p>Each component in angular has its own change detector</p>
+<p>Angular runs the change detection from top to bottom</p>
+<p>ngzone is responsible to inform angular about asyncronous changes</p>
+<button (click)="onClick()">Parent Click</button>
+<app-child [firstName]="'ptm'" [testArr]="testArr()"/>

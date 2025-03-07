@@ -1,0 +1,6 @@
+<h1>child works!</h1>
+<p>Angular runs the change detection for whole tree if any event happens in any components. By setting ChangeDetectionStrategy.OnPush it avoids change from parent components. It is only gonna refresh the view once the child button is clicked. Means onpush only detects the components which uses ChangeDetectionStrategy.OnPush</p>
+<button (click)="onClick()">Child Click</button>
+@for(a of testArr();track $index){
+    <p>{{a}}</p>
+}

@@ -1,17 +1,27 @@
-import { Component } from '@angular/core';
+import { Component, provideExperimentalZonelessChangeDetection } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
+import { ParentComponent } from './parent/parent.component';
 
 @Component({
   selector: 'app-root',
+  imports: [ParentComponent],
   template: `
-    <h1>Hello from {{ name }}!</h1>
-    <a target="_blank" href="https://angular.dev/overview">
-      Learn more about Angular
-    </a>
+    <button (click)='onClick()'>Root Click</button>
+    <p>This is gonna be a default change strategy. THis is gonna go from top to bottom</p>
+    <app-parent />
   `,
 })
 export class App {
   name = 'Angular';
+
+  onClick(){
+    console.log('Root Clicked');
+    
+  }
 }
 
-bootstrapApplication(App);
+bootstrapApplication(App,{
+  providers: [
+    provideExperimentalZonelessChangeDetection()
+  ]
+});
