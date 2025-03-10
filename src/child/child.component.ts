@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input, SimpleChange, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ContentChild, Input, SimpleChange, input } from '@angular/core';
 import { ChangeDetectorRef } from '@angular/core';
 
 
@@ -12,6 +12,7 @@ import { ChangeDetectorRef } from '@angular/core';
 })
 export class ChildComponent {
 
+  @ContentChild('element') element:any
   firstName = input<string>();
   age = input(0); 
   testArr = input<any[]>([]);
@@ -35,8 +36,18 @@ export class ChildComponent {
     this.ref.markForCheck(); //Mannually checking change detection as i used onpush
 
     console.log('Child Component');
+    console.log(this.element,'Do Check');
     
   }
+
+  ngAfterContentInit(){
+    console.log(this.element,'After Content Init');
+  }
+
+  ngAfterContentChecked(){
+    console.log('After Checked');
+  }
+
 
   onClick(){
     this.testArr().push('LOL')

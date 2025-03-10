@@ -11,4 +11,6 @@
 <p>Angular runs the change detection from top to bottom</p>
 <p>ngzone is responsible to inform angular about asyncronous changes</p>
 <button (click)="onClick()">Parent Click</button>
-<app-child [firstName]="'ptm'" [testArr]="testArr()"/>
+<app-child [firstName]="'ptm'" [testArr]="testArr()">
+    <h1 #element>Hello From Content {{ count() }}</h1>
+</app-child>

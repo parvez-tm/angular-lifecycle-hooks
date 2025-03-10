@@ -9,11 +9,12 @@ import { ChildComponent } from '../child/child.component';
 })
 export class ParentComponent {
 
+  count = signal(1)
   testArr = signal<any[]>([])
   onClick(){
     this.testArr().push('Parent LOL')
     console.log('Clicked');
-    
+    this.count.update(data=>data+1)
   }
 
   ngDoCheck(){
